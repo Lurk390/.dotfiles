@@ -5,13 +5,13 @@ echo "[*] Installing prerequisites..."
 if command -v apt >/dev/null 2>&1; then
     sudo apt update
     sudo apt install -y \
-        zsh git curl fzf ripgrep
+        zsh git curl fzf ripgrep stow
 elif command -v dnf >/dev/null 2>&1; then
     sudo dnf install -y \
-        zsh git curl fzf ripgrep
+        zsh git curl fzf ripgrep stow
 elif command -v pacman >/dev/null 2>&1; then
     sudo pacman -Syu --noconfirm \
-        zsh git curl fzf ripgrep
+        zsh git curl fzf ripgrep stow
 else
     echo "[-] Package manager not detected. Install zsh, git, curl, fzf, ripgrep manually."
     exit 1
