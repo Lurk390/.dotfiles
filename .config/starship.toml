@@ -45,6 +45,9 @@ format = "[$symbol$branch]($style) "
 [git_status]
 disabled = true
 
+[fill]
+symbol = " "
+
 # Right side
 [package]
 style = "purple"
@@ -86,3 +89,4 @@ format = "[$symbol]($style) "
 symbol = " "
 style = "bold #ED8B00"
 format = "[$symbol]($style) "
+
