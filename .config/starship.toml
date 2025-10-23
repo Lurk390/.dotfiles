@@ -1,82 +1,88 @@
-# ~/.config/starship.toml
+# https://starship.rs/config
 
-# Inserts a blank line between shell prompts
 add_newline = true
 
-# Change the default prompt format
-format = """\
-$time$env_var\
-$all$character"""
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$package\
+$fill\
+$all\
+$jobs\
+$cmd_duration\
+$line_break\
+$character
+"""
 
-# Change the default prompt characters
+# Left side
 [character]
 success_symbol = "[](bold green)"
 error_symbol = "[](bold red)"
 
-# Shows an icon that should be included by zshrc script based on the distribution or os
-[env_var.STARSHIP_DISTRO]
-format = '[$env_value](bold white)'  # removed space between distro and rest for pwsh
-variable = "STARSHIP_DISTRO"
-disabled = false
-
-[time]
-disabled = false
-format = '[$time]($style) '
-time_format = "%I:%M %p"
-utc_time_offset = "-4"
-style = "bold #8a15e2"
-
-# Shows the username
 [username]
-format = "[$user](bold #B93835) "
-disabled = false
-show_always = false
+style_user = "bold #B93835"
+format = "[$user]($style) "
 
 [hostname]
-format = "in [$hostname]($style) "
+format = "on [$hostname]($style) in "
 
 [directory]
 truncation_length = 3
 truncation_symbol = "…/"
-home_symbol = "󰋜 ~"
+home_symbol = "~"
 read_only_style = "197"
 read_only = "  "
-format = "at [$path]($style)[$read_only]($read_only_style) "
+format = "[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
 symbol = " "
-style = "yellow"
-format = "on [$symbol$branch]($style) "
+style = "bold yellow"
+format = "[$symbol$branch]($style) "
 
 [git_status]
 disabled = true
 
-[terraform]
-format = "via [ terraform $version]($style) 壟 [$workspace]($style) "
+# Right side
+[package]
+style = "purple"
+format = "[$version]($style) "
 
-[vagrant]
-format = "via [ vagrant $version]($style) "
+[jobs]
+symbol = " "
+style = "#828997"
+number_threshold = 1
+format = "[$symbol]($style) "
 
-[docker_context]
-format = "via [ $context](bold blue) "
+[cmd_duration]
+min_time = 1000
+format = "[$duration](#828997) "
 
-[helm]
-format = "via [ $version](bold purple) "
+# Language overrides
+[c]
+symbol = " "
+style = "bold blue"
+format = "[$symbol]($style) "
+
+[cpp]
+symbol = "󰙲 "
+style = "bold blue"
+format = "[$symbol]($style) "
+disabled = false
 
 [python]
 symbol = " "
-python_binary = "python3"
+style = "bold #ffde57"
+format = "[$symbol]($style) "
 
-[nodejs]
-format = "via [󰎙 $version](bold green) "
-disabled = true
+[rust]
+symbol = " "
+style = "bold #D34516"
+format = "[$symbol]($style) "
 
-[ruby]
-format = "via [ $version]($style) "
-
-[kubernetes]
-format = 'on [ $context\($namespace\)](bold purple) '
-disabled = false
-[kubernetes.context_aliases]
-"clcreative-k8s-staging" = "cl-k8s-staging"
-"clcreative-k8s-production" = "cl-k8s-prod"
+[java]
+symbol = " "
+style = "bold #ED8B00"
+format = "[$symbol]($style) "
