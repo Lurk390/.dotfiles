@@ -23,7 +23,7 @@ success_symbol = "[](bold green)"
 error_symbol = "[](bold red)"
 
 [username]
-style_user = "bold #B93835"
+style_user = "#B93835"
 format = "[$user]($style) "
 
 [hostname]
