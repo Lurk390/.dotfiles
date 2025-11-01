@@ -14,7 +14,7 @@ $all\
 $jobs\
 $cmd_duration\
 $line_break\
-$character
+$character\
 """
 
 # Left side
@@ -89,4 +89,5 @@ format = "[$symbol]($style) "
 symbol = " "
 style = "bold #ED8B00"
 format = "[$symbol]($style) "
+
 
